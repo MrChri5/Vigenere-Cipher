@@ -95,7 +95,6 @@ namespace VigenereCipher
         {
             //load .txt file into input textbox        
             string openFilePath = "";
-            openFileDialog1.InitialDirectory = "C:\\Users\\chris\\OneDrive\\VSProjects\\VigenereCipher";
             openFileDialog1.Filter = "Text file|*.txt";
             openFileDialog1.Title = "Open text file";
 
@@ -112,7 +111,6 @@ namespace VigenereCipher
         {
             //save output textbox to .txt file
             string saveFilePath = "";
-            saveFileDialog1.InitialDirectory = "C:\\Users\\chris\\OneDrive\\VSProjects\\VigenereCipher";
             saveFileDialog1.Filter = "Text file|*.txt";
             saveFileDialog1.Title = "Save text file";
 
@@ -167,6 +165,7 @@ namespace VigenereCipher
             int msgLength = 0;
             for (int i = 0; i < InputBox.TextLength; i++)
             {
+                //keywords already converted to uppercase
                 if (InputBox.Text[i] >= 'A' && InputBox.Text[i] <= 'Z')
                 {
                     msgLength++;
@@ -181,9 +180,11 @@ namespace VigenereCipher
             }                               
         }
 
+        //Lowest Common Multiple
+        //multiple values
         private int Lcm(int[] xArray)
         {
-            //lcm calculations for many numbers 
+            //LCM(x,y,z) = LCM(LCM(x,y),z)
             int lcmValue = 1;
             for (int i = 0; i < xArray.Length; i++)
             {
@@ -191,6 +192,7 @@ namespace VigenereCipher
             }
             return lcmValue;
         }
+        //pair of values
         private int Lcm(int x, int y)
         {
             //take abs of values
@@ -226,11 +228,12 @@ namespace VigenereCipher
             return lcmValue;
         }
 
+        //perform decode by setting encodeDecode to false
         private void DecodeBtn_Click(object sender, EventArgs e)
         {
             encode(false);
         }
-
+        //perform encode by setting encodeDecode to true
         private void EncodeBtn_Click(object sender, EventArgs e)
         {
             encode(true);
